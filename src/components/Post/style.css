@@ -1,0 +1,9 @@
+.gallery-item-info {
+    display: flex;
+    justify-content: space-between;
+}
+
+.gallery-item-likes, .gallery-item-comments {
+    display: flex;
+    color: #676767;
+}

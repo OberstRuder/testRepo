@@ -1,0 +1,8 @@
+.feed-cont button {
+    border-radius: 10px;
+}
+
+.feed-post-like-info a{
+    text-decoration: none;
+    color: black;
+}

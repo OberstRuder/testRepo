@@ -1,0 +1,25 @@
+.settings-cont {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.settings-cont div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 50%;
+}
+
+.edit-box div {
+    width: 100%;
+}
+
+.edit-box .primeBtn {
+    margin-top: 30px;
+    width: 100%;
+}
+
+.dropzone {
+    justify-content: center;
+}

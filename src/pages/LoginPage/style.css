@@ -1,0 +1,41 @@
+.login-cont {
+    display: flex;
+    justify-content: center;
+}
+
+.login-box {
+    background-color: gainsboro;
+    padding: 30px;
+    border-radius: 5%;
+    margin-top: 50px;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    min-width: 30%;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.showBtn {
+    width: 40px;
+    bottom: 35px;
+}
+
+button {
+    background-color: #676767;
+    border: none;
+    padding: 15px 32px;
+    text-align: center;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+.primeBtn, .ordinaryBtn {
+    width: 50%;
+}
+
+.primeBtn a, .ordinaryBtn a {
+    text-decoration: none;
+    color: white;
+}

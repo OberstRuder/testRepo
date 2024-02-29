@@ -1,0 +1,12 @@
+.error-cont {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 20px auto 0;
+}
+
+.error-img {
+    width: 35%;
+    height: 100%; 
+}

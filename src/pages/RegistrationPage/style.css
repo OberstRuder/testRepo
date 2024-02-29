@@ -1,0 +1,29 @@
+.reg-cont {
+    display: flex;
+    justify-content: center;
+}
+
+.reg-box {
+    background-color: gainsboro;
+    padding: 30px;
+    border-radius: 5%;
+    margin-top: 50px;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    min-width: 30%;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.primeBtn {
+    color: white;
+}
+
+.primeBtn, .ordinaryBtn {
+    width: 50%;
+}
+
+.primeBtn a, .ordinaryBtn a {
+    text-decoration: none;
+    color: white;
+}

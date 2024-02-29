@@ -1,0 +1,41 @@
+.header {
+    height: 90px;
+    width: 100%;
+    border-bottom: 1px solid #dbdbdb;
+    background-color: #fff;
+}
+
+img {
+    width: 60px;
+    height: 60px;
+}
+
+.head-box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+    max-width: 1080px;
+    margin: auto;
+    padding: 0 20px;
+}
+
+.link-box {
+    display: flex;
+    flex-direction: row;
+}
+
+.link-box a {
+    text-decoration: none;
+    color: black;
+    margin-left: 20px;
+    text-transform: uppercase;
+    align-items: center;
+    display: flex;
+    transition: 0.01s;
+}
+
+.link-box a:hover {
+    transform: translateY(-3px)
+}
+

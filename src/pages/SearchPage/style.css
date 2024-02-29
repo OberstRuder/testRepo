@@ -1,0 +1,27 @@
+.search-cont {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.search-item {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+}
+
+.search-item img {
+    width: 100px;
+    height: 100%;
+}
+
+.search-item a {
+    text-decoration: none;
+    color: black;
+    margin-left: 20px;
+}

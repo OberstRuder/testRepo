@@ -1,0 +1,1 @@
+export const backendUrl = 'http://hipstagram.node.ed.asmer.org.ua/';
