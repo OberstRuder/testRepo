@@ -21,7 +21,7 @@ const Routing = ({ isLogged }) => {
                 isLogged ?
                     <div className="main-cont">
                         <Routes>
-                            <Route path="/" element={<CShowPosts/>} />
+                            <Route path="/testrepo" element={<CShowPosts/>} />
                             <Route path="/profile/:_id" element={<CProfile />} />
                             <Route path="/search" element={<CSearch/>}/>
                             <Route path='/settings' element={<CSettings/>}/>

@@ -1,14 +1,14 @@
 import './App.css';
-import { BrowserRouter } from 'react-router-dom';
+import { HashRouter } from 'react-router-dom';
 import { CRouting } from './components/routing';
 import { CHeader } from './components/Header';
 
 function App() {
   return (
-    <BrowserRouter>
+    <HashRouter basename={process.env.PUBLIC_URL}>
       <CHeader />
       <CRouting />
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 
