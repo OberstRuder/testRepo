@@ -10,27 +10,26 @@ import { actionFullGetAllPosts } from "../../redux/actions/actionsPost";
 import { store } from "../../redux/store";
 import './style.css';
 
-const LoginPage = ({ onLogin, isLogged, promise, myId }) => {
+const LoginPage = ({ onLogin, isLoggedProp, promise, myId }) => {
     const [login, setLogin] = useState('')
     const [password, setPassword] = useState('')
     const [errorMessage, setErrorMessage] = useState('')
     const [showPass, setShowPass] = useState(false)
+    const [isLogged, setIsLogged] = useState(isLoggedProp)
 
     const navigate = useNavigate()
 
     useEffect(() => {
         if (promise) {
             if (login && password) {
-                isLogged = localStorage.authToken
+                setIsLogged(localStorage.authToken)
                 if (localStorage.authToken) {
                     store.dispatch(actionAboutMe())
                     store.dispatch(actionAuthLogin(localStorage.authToken))
                     store.dispatch(actionFullGetAllPosts())
+                    navigate('/feed/');
+                    setErrorMessage('')
                 }
-                navigate('/feed/');
-                setErrorMessage('')
-            } else {
-                setErrorMessage('Login and password cannot be empty')
             }
     
             if (promise.status === 'RESOLVED' && !promise.payload) {
@@ -38,6 +37,18 @@ const LoginPage = ({ onLogin, isLogged, promise, myId }) => {
             }
         }
     }, [isLogged, navigate, promise]);
+
+    const handleLogin = async (event) => {
+        event.preventDefault();
+        if (login && password) {
+            await onLogin(login, password);
+            if (localStorage.authToken) {
+                navigate('/feed');
+            }
+        } else {
+            setErrorMessage('Login and password cannot be empty')
+        }
+    }
 
     return (
         <div className='login-cont'>
@@ -64,9 +75,9 @@ const LoginPage = ({ onLogin, isLogged, promise, myId }) => {
                     {<p style={{ color: 'red', fontSize: '16px', position: 'relative', bottom: '30px' }}>{errorMessage}</p>}
                     <button
                         className='primeBtn'
-                        onClick={() => onLogin(login, password)}
+                        onClick={handleLogin}
                         disabled={!login || !password}>
-                        {!login || !password ? <Link>Log in</Link> : <Link to={'/feed'}>Log in</Link>}
+                        Log in
                     </button>
                     <p>Don't have an account? <br />
                         <button className='primeBtn'>
@@ -81,7 +92,7 @@ const LoginPage = ({ onLogin, isLogged, promise, myId }) => {
 
 export const CLoginPage = connect(
     (state) => ({
-        isLogged: state?.auth?.token,
+        isLoggedProp: state?.auth?.token,
         promise: state?.promise?.login,
         myId: state?.auth?.payload?.sub?.id
     }),

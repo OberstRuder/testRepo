@@ -6,13 +6,15 @@ import {Link} from "react-router-dom";
 import {connect} from "react-redux";
 import {actionGetPostById} from "../../gql/postGql";
 import ChatBubbleOutlinedIcon from '@mui/icons-material/ChatBubbleOutlined';
+import defaultPhoto from '../../materials/nophoto.jpg'
 import './style.css';
 
 const multiIcon = {
     position: 'absolute',
     top: '5%',
     right: '5%',
-    transform: 'scale(1.4)'
+    transform: 'scale(1.4)',
+    color: 'white'
 };
 
 const scale = {
@@ -23,15 +25,16 @@ const scale = {
 const PreviewPost = ({post, getPostById}) => {
 
     return (
-       <Link key={post?._id} to={`/post/${post?._id}`}>
-           <div onClick={() => getPostById(post?._id)}>
-               {
-                   post?.images?.[0]?.url
-                && <div className='gallery-item'>
+       <div onClick={() => getPostById(post?._id)}>
+           {
+               post?.images?.[0]?.url
+            ? <Link key={post?._id} to={`/post/${post?._id}`}>
+                <div className='gallery-item'>
                    <>
                        <img src={backendUrl + post.images?.[0]?.url}
                             alt={'post-pic'}
-                            className='gallery-img' />
+                            className='gallery-img'
+                            onError={(e)=>{e.target.onerror = null; e.target.src=defaultPhoto}} />
                        {
                            post?.images.length > 1
                        && <BurstModeIcon style={multiIcon}/>
@@ -48,9 +51,12 @@ const PreviewPost = ({post, getPostById}) => {
                        </div>
                    </div>
                </div>
-               }
-           </div>
-       </Link>
+              </Link>
+           : <div className='gallery-item'>
+               <img src={defaultPhoto} alt={'default-pic'} className='gallery-img' />
+             </div>
+           }
+       </div>
     );
 }
 
@@ -58,4 +64,3 @@ export const CPostPreview = connect(
    null, {
     getPostById: actionGetPostById
 })(PreviewPost)
-
